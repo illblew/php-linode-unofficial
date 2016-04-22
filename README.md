@@ -8,6 +8,10 @@ contribute. I am in no way an expert and have never written one of these before.
 
 ----------
 
+You can sign up for the Alpha [HERE](https://alpha.linode.com/).
+
+You can find the developer docs [HERE](https://developers.linode.com/).
+
 
 > **Note:**
 
