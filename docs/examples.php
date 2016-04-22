@@ -16,7 +16,7 @@ if($_GET['auth'] == 1 && isset($_GET['code'])) {
         }
         else
         {
-                echo "You need to provide a code to get a token!"
+                echo "You need to provide a code to get a token!";
         }
 
 ?>
