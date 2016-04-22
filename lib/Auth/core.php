@@ -11,7 +11,7 @@ class Auth {
         'client_secret' => $clientSecret,
         'code' => $code);
         $headers = "Content-type: application/x-www-form-urlencoded";
-        $authCurl = $curl->CurlPost($endpoint,$headers,$post);
+        $authCurl = $curl->CurlPost($endpoint . "token",$headers,$post);
         return $authCurl;
     }
 }
