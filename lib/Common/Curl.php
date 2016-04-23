@@ -1,6 +1,8 @@
 <?php
+namespace Linode\Common;
+
 class Curl {
-    function CurlPost($endpoint,$header, $post) {
+    public function CurlPost($endpoint,$header, $post) {
         $ch = curl_init();
         $values = array(
             CURLOPT_URL => $endpoint,
@@ -13,7 +15,7 @@ class Curl {
         return $response;
     }
 
-    function CurlGet($endpoint) {
+    public function CurlGet($endpoint) {
         $ch = curl_init();
         curl_setopt_array($ch, array(
             CURLOPT_RETURNTRANSFER =>1,
@@ -25,4 +27,3 @@ class Curl {
 
     }
 }
-?>
