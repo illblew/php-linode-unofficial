@@ -1,6 +1,8 @@
 <?php
+namespace Linode\Common;
+
 class ConfigManager {
-    function loadConfig($configFile) {
+    public function loadConfig($configFile) {
         try {
             $config = parse_ini_file($configFile);
             $clientsecret = $config['clientsecret'];
@@ -15,4 +17,3 @@ class ConfigManager {
         }
     }
 }
-?>

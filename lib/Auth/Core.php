@@ -1,8 +1,9 @@
 <?php
+namespace Linode\Auth;
 
-require __DIR__ . '/../Common/Curl.php';
+use Linode\Common\Curl;
 
-class Auth {
+class Core {
 
     function GetAuth($endpoint,$clientId,$clientSecret,$code) {
         $curl = new Curl;
@@ -15,5 +16,3 @@ class Auth {
         return $authCurl;
     }
 }
-
-?>

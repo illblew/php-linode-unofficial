@@ -1,0 +1,23 @@
+{
+    "name": "illblew/php-linode-unofficial",
+    "type": "library",
+    "description": "Unofficial Linode API v4 wrapper",
+    "keywords": ["linode"],
+    "homepage": "https://github.com/illblew/php-linode-unofficial",
+    "authors": [
+        {
+            "name": "Will Blew",
+            "email": "wblew@linode.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Linode\\": "lib/"
+        }
+    },
+    "require": {
+        "php": ">=5.2.0",
+        "ext-curl": "*",
+        "ext-json": "*"
+    }
+}
