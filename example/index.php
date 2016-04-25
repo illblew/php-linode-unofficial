@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
 $configFile = 'config.ini'; // Target config to use
 $configManager = new Linode\Common\ConfigManager;
