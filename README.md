@@ -29,7 +29,6 @@ To mess with this in the project root:
 ```bash
 cp config.ini.example config.ini
 vi config.ini
-ln -s example/index.php
 # getcomposer.org
 php composer.phar install
 php -S 0.0.0.0:8080
