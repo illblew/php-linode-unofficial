@@ -1,3 +1,4 @@
 config.ini
-
+composer.lock
+composer.phar
 /vendor/
