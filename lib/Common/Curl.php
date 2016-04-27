@@ -1,4 +1,5 @@
 <?php
+
 namespace Linode\Common;
 
 class Curl
@@ -14,6 +15,7 @@ class Curl
         );
         curl_setopt_array($ch, ($values));
         $response = json_decode(curl_exec($ch), true);
+
         return $response;
     }
 
@@ -25,10 +27,11 @@ class Curl
             array(
                 CURLOPT_RETURNTRANSFER => 1,
                 CURLOPT_URL => $endpoint,
-                CURLOPT_USERAGENT => 'linode-php-unoffical'
+                CURLOPT_USERAGENT => 'linode-php-unoffical',
             )
         );
         $response = curl_exec($ch);
+
         return $response;
     }
 }

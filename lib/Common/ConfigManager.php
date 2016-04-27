@@ -1,4 +1,5 @@
 <?php
+
 namespace Linode\Common;
 
 class ConfigManager
@@ -13,13 +14,14 @@ class ConfigManager
             $beachballmode = $config['beachballmode'];
             $token = $config['token'];
 
-            $configDetails = array (
-                "clientsecret"  => $clientsecret,
-                "clientid"      => $clientid,
-                "baseoauth"     => $baseoauth,
-                "beachballmode" => $beachballmode,
-                "token"         => $token
+            $configDetails = array(
+                'clientsecret' => $clientsecret,
+                'clientid' => $clientid,
+                'baseoauth' => $baseoauth,
+                'beachballmode' => $beachballmode,
+                'token' => $token,
             );
+
             return $configDetails;
         } catch (Exception $e) {
             return false;
