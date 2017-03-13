@@ -19,17 +19,12 @@ class Curl
         return $response;
     }
 
-    public function curlGet($endpoint)
+    public function curlGet($endpoint, $token)
     {
         $ch = curl_init();
-        curl_setopt_array(
-            $ch,
-            array(
-                CURLOPT_RETURNTRANSFER => 1,
-                CURLOPT_URL => $endpoint,
-                CURLOPT_USERAGENT => 'linode-php-unoffical',
-            )
-        );
+        $headers = array('Authorization: token ' . $token);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_URL, $endpoint);
         $response = curl_exec($ch);
 
         return $response;
