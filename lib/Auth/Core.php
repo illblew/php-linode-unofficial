@@ -7,6 +7,7 @@ use Linode\Common\ConfigManager;
 
 class Core
 {
+
     public function getAuth($endpoint, $clientId, $clientSecret, $code)
     {
         $curl = new Curl();
@@ -29,5 +30,14 @@ class Core
         $myToken = $config['token'];
 
         return $myToken;
+    }
+
+        public function getApiUrl()
+    {
+        $myConfig = new ConfigManager();
+        $config = $myConfig->loadConfig();
+        $apiUrl = $config['endpoint'];
+
+        return $apiUrl;
     }
 }

@@ -4,7 +4,7 @@ namespace Linode\Common;
 
 class Curl
 {
-    public function curlPost($endpoint, $header, $post)
+    public function curlPost($endpoint, $headers, $post)
     {
         $ch = curl_init();
         $values = array(
@@ -13,6 +13,7 @@ class Curl
             CURLOPT_POSTFIELDS => $post,
             CURLOPT_RETURNTRANSFER => 1,
         );
+        curl_setopt($ch,CURLOPT_HTTPHEADER, $headers);
         curl_setopt_array($ch, ($values));
         $response = json_decode(curl_exec($ch), true);
 
