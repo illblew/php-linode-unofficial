@@ -7,10 +7,10 @@ use Linode\Common\Curl;
 class Instances
 {
 
-    function getLinodes($token) {
+    public function getLinodes($token,$apiUrl) {
         $curl = new Curl();
-        $endpoint = 'https://api.alpha.linode.com/v4/linode/instances';
-        $instances = $curl->curlGet($endpoint,$token);
+        $fullUrl = $apiUrl . 'linode/instances';
+        $instances = $curl->curlGet($fullUrl,$token);
         return $instances;
     }
 

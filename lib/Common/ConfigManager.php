@@ -13,6 +13,7 @@ class ConfigManager
             $baseoauth = $config['baseoauth'];
             $beachballmode = $config['beachballmode'];
             $token = $config['token'];
+            $endpoint = $config['endpoint'];
 
             $configDetails = array(
                 'clientsecret' => $clientsecret,
@@ -20,6 +21,7 @@ class ConfigManager
                 'baseoauth' => $baseoauth,
                 'beachballmode' => $beachballmode,
                 'token' => $token,
+                'endpoint' => $endpoint,
             );
 
             return $configDetails;

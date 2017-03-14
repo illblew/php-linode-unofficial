@@ -1,5 +1,6 @@
 clientsecret=
 clientid=
 baseoauth=https://login.alpha.linode.com/oauth/
+endpoint=https://api.alpha.linode.com/v4/linode/
 beachballmode=
 token=

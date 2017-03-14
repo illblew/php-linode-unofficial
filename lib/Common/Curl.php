@@ -22,8 +22,10 @@ class Curl
     public function curlGet($endpoint, $token)
     {
         $ch = curl_init();
-        $headers = array('Authorization: token ' . $token);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        if (!empty($token)) {
+            $headers = array('Authorization: token ' . $token);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        }
         curl_setopt($ch, CURLOPT_URL, $endpoint);
         $response = curl_exec($ch);
 
