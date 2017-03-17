@@ -11,7 +11,7 @@ if (!empty($config['token'])) {
     echo '$Instances->getLinodes();';
     echo '<BR><BR><h3>Make a Linode</h3>';
     echo '$create = new Linode\Instances\Instances();'
-    echo '$create->createLinode('newark','standard-1');'
+    echo '$create->createLinode('newark','standard-1');';
 } else {
     echo "You didn't provide a token in your config! Provide it or pass a code to set one.";
 }
