@@ -7,16 +7,18 @@ class Curl
     public function curlPost($endpoint, $headers, $post)
     {
         $ch = curl_init();
+        //$post = str_replace('\\', '', $post);
+        echo "Debug: ";
+        var_dump($post);
         $values = array(
             CURLOPT_URL => $endpoint,
-            CURLOPT_POST => true,
+            CURLOPT_POST => 1,
             CURLOPT_POSTFIELDS => $post,
-            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_RETURNTRANSFER => true,
         );
         curl_setopt($ch,CURLOPT_HTTPHEADER, $headers);
         curl_setopt_array($ch, ($values));
-        $response = json_decode(curl_exec($ch), true);
-
+        $response = curl_exec($ch);
         return $response;
     }
 
@@ -29,7 +31,6 @@ class Curl
         }
         curl_setopt($ch, CURLOPT_URL, $endpoint);
         $response = curl_exec($ch);
-
         return $response;
     }
 }

@@ -20,10 +20,16 @@ class Instances extends Core
     }
 
     //Create a Linode Instance.
-    public function createLinode($datacenter,$type,$label,$group,$distro,$root_pass,$root_ssh_key,$stackscript,$stackscript_udf_responses,$backup,$with_backup) {
+    public function createLinode($datacenter,$type,$label = null ,$group = null,$distro = null,$root_pass = null,$root_ssh_key = null,$stackscript = null,$stackscript_udf_responses = null,$backup = null,$with_backup = null) {
+        $curl = new Curl();
         $apiUrl = $this->getApiUrl();
         $token = $this->getTokenAuth();
-        $header = array ();
+        $fullUrl = $apiUrl . 'linode/instances';
+        $arr = array("datacenter" => $datacenter, "type" => $type);
+        $post = json_encode($arr);
+        $header = array ('Content-Type: application/json', 'Authorization: token ' . $token);
+        $instance = $curl->curlPost($fullUrl,$header,$post);
+        return $instance;
 
     }
 
