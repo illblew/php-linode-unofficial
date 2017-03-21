@@ -7,9 +7,6 @@ class Curl
     public function curlPost($endpoint, $headers, $post)
     {
         $ch = curl_init();
-        //$post = str_replace('\\', '', $post);
-        echo "Debug: ";
-        var_dump($post);
         $values = array(
             CURLOPT_URL => $endpoint,
             CURLOPT_POST => 1,
