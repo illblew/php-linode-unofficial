@@ -8,11 +8,16 @@ class Distributions extends Core
 {
 	//Get a list of al available distributions
 
-	function getDistros() {
+	function getDistros($id = null) {
         $curl = new Curl();
         $apiUrl = $this->getApiUrl();
         $token = $this->getTokenAuth();
-        $fullUrl = $apiUrl . 'distributions';
+        if ($id != null) {
+        	$path = 'distributions/' . $id;
+        } else {
+        	$path = 'distributions';
+        }
+        $fullUrl = $apiUrl . $path;
         $kernels = $curl->curlGet($fullUrl,$token);
         return $distributions;
 	}
