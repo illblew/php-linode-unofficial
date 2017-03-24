@@ -18,7 +18,7 @@ class Distributions extends Core
         	$path = 'distributions';
         }
         $fullUrl = $apiUrl . $path;
-        $kernels = $curl->curlGet($fullUrl,$token);
+        $distributions = $curl->curlGet($fullUrl,$token);
         return $distributions;
 	}
 }
