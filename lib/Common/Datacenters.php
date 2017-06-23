@@ -2,7 +2,7 @@
 
 namespace Linode\Common;
 
-use Linode\Common\Curl;
+use Linode\Auth\Core;
 
 class Datacenters extends Core
 {
@@ -12,8 +12,8 @@ class Datacenters extends Core
         $curl = new Curl();
         $apiUrl = $this->getApiUrl();
         $token = $this->getTokenAuth();
-        $fullUrl = $apiUrl . 'datacenters';
-        $kernels = $curl->curlGet($fullUrl,$token);
+        $fullUrl = $apiUrl . 'regions';
+        $datacenters = $curl->curlGet($fullUrl,$token);
         return $datacenters;
     }
 
