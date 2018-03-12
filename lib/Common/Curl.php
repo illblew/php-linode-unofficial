@@ -50,7 +50,7 @@ class Curl
 	);
 
         if (!empty($token)) {
-            $headers = array('Authorization: token ' . $token);
+            $headers = array('Authorization: Bearer ' . $token);
 	    $values[CURLOPT_HTTPHEADER] = $headers;
         }
         curl_setopt_array($ch, $values);
