@@ -6,9 +6,8 @@ This is just a little wrapper I'm working on to ease the testing of the Linode A
 you think something is done incorrectly or dumb please feel free to open an issue or
 contribute. I am in no way an expert and have never written one of these before.
 
-----------
 
-You can sign up for the Alpha [HERE](https://alpha.linode.com/).
+----------
 
 You can find the developer docs [HERE](https://developers.linode.com/).
 
