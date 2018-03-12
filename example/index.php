@@ -38,6 +38,10 @@ if (!empty($config['token'])) {
     $Images = new Linode\Common\Images();
     var_dump($Images->getImages());
 
+    $Events = new Linode\Account\Events();
+    var_dump($Events->getEvent());
+
+
     echo '//todo replace with real docs<BR>';
 
 } else {
