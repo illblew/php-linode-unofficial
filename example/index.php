@@ -16,33 +16,23 @@ if (!empty($config['token'])) {
     echo '<pre>';
     echo '$Regions = new Linode\Common\Regions();<BR>';
     echo '$Regions->getRegions();<br>';
-    $Regions = new Linode\Common\Regions();
-    $regions = $Regions->getRegions();
-    var_dump($regions);
     echo '</pre>' ;
 
     echo '<h3>Get Instances</h3>';
     echo '<pre>';
     echo '$Instances = new Linode\Instances\Instances();<BR>';
     echo '$Instances->getLinodes();'.'\n';
-    $Instances = new Linode\Instances\Instances();
-    $linodes = $Instances->getLinodes();
-    var_dump($linodes);
     echo '</pre>';
 
     echo '<h3>Get Images</h3>';
     echo '<pre>';
     echo '$Images = new Linode\Common\Images();<BR>';
-    echo '$Images->getImages();<br>';
+    echo '$Images->getImages();<BR>';
+    echo '</pre>';
 
-    $Images = new Linode\Common\Images();
-    var_dump($Images->getImages());
-
-    $Events = new Linode\Account\Events();
-    var_dump($Events->getEvent());
-
-
-    echo '//todo replace with real docs<BR>';
+    echo '<h3>Get Profile</h3>';
+    echo '$Profile = new Linode\Account\Profile()<BR>';
+    echo '$Profile->getProfile()';
 
 } else {
     echo 'You need to provide a token in your config! Provide it or pass a code to set one.\n';
