@@ -36,7 +36,7 @@ if (!empty($config['token'])) {
     echo '$Images->getImages();'.'\n';
 
     $Images = new Linode\Common\Images();
-    echo $Images->getImages();
+    var_dump($Images->getImages());
 
     echo '//todo replace with real docs'.'\n';
 
