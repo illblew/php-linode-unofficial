@@ -4,7 +4,7 @@ namespace Linode\Common;
 
 use Linode\Auth\Core;
 
-class Regionss extends Core
+class Regions extends Core
 {
 
     //Get a list of all Linode datacenters.
@@ -13,8 +13,8 @@ class Regionss extends Core
         $apiUrl = $this->getApiUrl();
         $token = $this->getTokenAuth();
         $fullUrl = $apiUrl . 'regions';
-        $datacenters = $curl->curlGet($fullUrl,$token);
-        return $datacenters;
+        $regions = $curl->curlGet($fullUrl,$token);
+        return $regions;
     }
 
 }
