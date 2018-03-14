@@ -22,6 +22,20 @@ class Core
         return $authCurl;
     }
 
+
+    public function getHeader($withAuth = null) {
+        if (!is_null($withAuth)) 
+        {
+            $header = array('Content-Type: application/json');
+        } 
+        else 
+        {
+            $token = $this->getTokenAuth();
+            $header = array('Content-Type: application/json', 'Authorization: Bearer ' . $token);
+        }
+        return $header;
+
+    }
     // We also need a token stomp to set in the config for the function above
     public function getTokenAuth()
     {

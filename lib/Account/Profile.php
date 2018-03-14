@@ -12,10 +12,10 @@ class Profile extends Core
 	function getProfile($id = null) {
         $curl = new Curl();
         $apiUrl = $this->getApiUrl();
-        $token = $this->getTokenAuth();
+        $header = $this->getHeader();
         $path = '/profile';
         $fullUrl = $apiUrl . $path;
-        $profile = $curl->curlGet($fullUrl,$token);
+        $profile = $curl->curlGet($fullUrl,$header);
         return $profile;
 	}
 }

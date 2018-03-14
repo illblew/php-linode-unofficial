@@ -11,9 +11,9 @@ class Regions extends Core
     public function getRegions() {
         $curl = new Curl();
         $apiUrl = $this->getApiUrl();
-        $token = $this->getTokenAuth();
         $fullUrl = $apiUrl . 'regions';
-        $regions = $curl->curlGet($fullUrl,$token);
+        $header = $this->getHeader(0);
+        $regions = $curl->curlGet($fullUrl,$header);
         return $regions;
     }
 

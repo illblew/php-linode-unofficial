@@ -12,14 +12,14 @@ class Images extends Core
 	function getImages($id = null) {
         $curl = new Curl();
         $apiUrl = $this->getApiUrl();
-        $token = $this->getTokenAuth();
+        $header = $this->getHeader(0);
         if ($id != null) {
         	$path = 'images/' . $id;
         } else {
         	$path = 'images';
         }
         $fullUrl = $apiUrl . $path;
-        $images = $curl->curlGet($fullUrl,$token);
+        $images = $curl->curlGet($fullUrl,$header);
         return $images;
 	}
 }

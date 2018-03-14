@@ -31,8 +31,8 @@ if (!empty($config['token'])) {
     echo '</pre>';
 
     echo '<h3>Get Profile</h3>';
-    echo '$Profile = new Linode\Account\Profile()<BR>';
-    echo '$Profile->getProfile()';
+    echo '$Profile = new Linode\Account\Profile();<BR>';
+    echo '$Profile->getProfile();';
 
 } else {
     echo 'You need to provide a token in your config! Provide it or pass a code to set one.\n';

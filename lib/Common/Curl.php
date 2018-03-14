@@ -40,7 +40,7 @@ class Curl
         return $response;
     }
 
-    public function curlGet($endpoint, $token)
+    public function curlGet($endpoint, $header)
     {
 	$ch = curl_init();
 	$values = array(
@@ -49,9 +49,8 @@ class Curl
 	    CURLOPT_USERAGENT => self::USER_AGENT,
 	);
 
-        if (!empty($token)) {
-            $headers = array('Authorization: Bearer ' . $token);
-	    $values[CURLOPT_HTTPHEADER] = $headers;
+        if (!empty($header)) {
+	    $values[CURLOPT_HTTPHEADER] = $header;
         }
         curl_setopt_array($ch, $values);
 	$response = curl_exec($ch);
