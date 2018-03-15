@@ -12,7 +12,7 @@ class Regions extends Core
         $curl = new Curl();
         $apiUrl = $this->getApiUrl();
         $fullUrl = $apiUrl . 'regions';
-        $header = $this->getHeader(0);
+        $header = $this->getHeader();
         $regions = $curl->curlGet($fullUrl,$header);
         return $regions;
     }

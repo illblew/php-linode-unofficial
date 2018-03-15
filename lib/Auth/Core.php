@@ -24,14 +24,10 @@ class Core
 
 
     public function getHeader($withAuth = null) {
-        if (!is_null($withAuth)) 
-        {
-            $header = array('Content-Type: application/json');
-        } 
-        else 
-        {
+        $header = array('Content-Type = application/json');
+        if ($withAuth) {
             $token = $this->getTokenAuth();
-            $header = array('Content-Type: application/json', 'Authorization: Bearer ' . $token);
+            $header[] = 'Authorization: Bearer ' . $token;
         }
         return $header;
 

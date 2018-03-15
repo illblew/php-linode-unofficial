@@ -12,7 +12,7 @@ class Instances extends Core
     public function getLinodes() {
         $curl = new Curl();
         $apiUrl = $this->getApiUrl();
-        $header = $this->getHeader();
+        $header = $this->getHeader(True);
         $fullUrl = $apiUrl . 'linode/instances';
         $instances = $curl->curlGet($fullUrl,$header);
         return $instances;
@@ -36,7 +36,7 @@ class Instances extends Core
         $curl = new Curl();
         $apiUrl = $this->getApiUrl();
         $fullUrl = $apiUrl . "linode/instances/".((int)$id);
-        $header = $this->getHeader();
+        $header = $this->getHeader(True);
         $instance = $curl->curlDelete($fullUrl,$header);
         return $instance;
     }
@@ -48,7 +48,7 @@ class Instances extends Core
         $apiUrl = $this->getApiUrl();
         $arr = array("config_id" => $config_id);
         $fullUrl = $apiUrl . "linode/instance/" . $id . "/boot";
-        $header = $this->getHeader();
+        $header = $this->getHeader(True);
         $boot = $curl->curlPost($fullUrl,$arr,$header);
         return $boot;
     }

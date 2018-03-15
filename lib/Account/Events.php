@@ -11,7 +11,7 @@ class Events extends Core
     public function getEvent($id=null) {
         $curl = new Curl();
         $apiUrl = $this->getApiUrl();
-        $header = $this->getHeader();
+        $header = $this->getHeader(True);
         $fullUrl = $apiUrl . 'account/events/' . $id;
         $events = $curl->curlGet($fullUrl,$header);
         return $events;

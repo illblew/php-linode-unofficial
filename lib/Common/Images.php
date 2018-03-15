@@ -12,7 +12,7 @@ class Images extends Core
 	function getImages($id = null) {
         $curl = new Curl();
         $apiUrl = $this->getApiUrl();
-        $header = $this->getHeader(0);
+        $header = $this->getHeader();
         if ($id != null) {
         	$path = 'images/' . $id;
         } else {

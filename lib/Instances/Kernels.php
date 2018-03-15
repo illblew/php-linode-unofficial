@@ -11,9 +11,9 @@ class Kernels extends Core
     public function getKernels() {
         $curl = new Curl();
         $apiUrl = $this->getApiUrl();
-        $token = $this->getTokenAuth();
+        $header = $this->getHeader();
         $fullUrl = $apiUrl . 'linode/kernels';
-        $kernels = $curl->curlGet($fullUrl,$token);
+        $kernels = $curl->curlGet($fullUrl,$header);
         return $kernels;
     }
 
