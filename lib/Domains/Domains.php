@@ -12,10 +12,24 @@ class Domains extends Core
         $curl = new Curl();
         $apiUrl = $this->getApiUrl();
         $header = $this->getHeader(True);
-        $fullUrl = $apiUrl . 'domains' . $domain_id;
+        $fullUrl = $apiUrl . 'domains/' . $domain_id;
         $domains = $curl->curlGet($fullUrl,$header);
         return $domains;
     }
+    
+    public function getDomainRecords($domain_id = null, $record_id = null) {
+    
+        $curl = new Curl();
+        $apiUrl = $this->getApiURL();
+        $header = $this->getHeader(True);
+        $fullUrl = $apiUrl . 'domains/' . $domain_id . 'records/' . $record_id ;
+        $records = $curl-curlGet($fullUrl, $header);
+        return $records; 
+    }
+
+    ///
+    // Do the posts here
+    //
 
 
 }
