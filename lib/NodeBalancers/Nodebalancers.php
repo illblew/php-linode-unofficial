@@ -37,12 +37,21 @@ class NodeBalancers extends Core
 
     // Configs
     
-    public function getNodeConfig($nb_id) {
+    public function getNodeConfig($nb_id, $config_id = null) {
         $curl = new Curl();
         $apiUrl = $this->getApiUrl();
         $header = $this->getHeader(True);
-        $fullUrl = $apiUrl . 'nodebalancers/' . $nb_id . '/configs';
+        $fullUrl = $apiUrl . 'nodebalancers/' . $nb_id . '/configs/' . $config_id;
         $nodeConfig = $curl->curlGet($fullUrl,$header);
+        return $nodeConfig;
+    }
+
+    public function deleteNodeConfig($nb_id,$config_id) {
+        $curl = new Curl();
+        $apiUrl = $this->getApiUrl();
+        $header = $this->getHeader(True);
+        $fullUrl = $apiUrl . 'nodebalancers/' . $nb_id . '/configs/' . $config_id;
+        $nodeConfig = $curl->curlDelete($fullUrl,$header);
         return $nodeConfig;
     }
 
@@ -52,11 +61,11 @@ class NodeBalancers extends Core
         $header = $this->getHeader(True);
         $fullUrl = $apiUrl . 'nodebalacer/' . $nb_id . '/configs';
         $arr = array('port' => $port, 'protocol' => $protocol, 'algorithm' => $algorithm, 'stickiness' => $stickiness, 'check' => $check, 'check_interval' => $check_interval, 'check_timeout' => $check_interval, 'check_attempts' => $check_interval, 'check_path' => $check_path, 'check_body' => $check_body, 'check_passive' => $check_passive, 'ssl_cert' => $ssl_cert, 'ssl_key' => $ssl_key, 'cipher_suite' => $cipher_suite);
-
         $post = json_encode($arr);
         $config = $curl->curlPost($fullUrl,$header,$post);
         return $config;
     }
+
 
 }
 
