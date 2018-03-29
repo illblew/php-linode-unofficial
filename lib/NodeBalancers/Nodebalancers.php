@@ -16,7 +16,7 @@ class NodeBalancers extends Core
         return $nodebalancers;
     }
 
-    public function putNodeBalancers($region = null,$label = null,$client_conn_throttle = 0) {
+    public function postNodeBalancers($region = null,$label = null,$client_conn_throttle = 0) {
         $curl = new Curl();
         $apiUrl = $this->getApiUrl();
         $header = $this->getHeader(True);
