@@ -33,10 +33,13 @@ if (!empty($config['token'])) {
     echo '<h3>Get Profile</h3>';
     echo '$Profile = new Linode\Account\Profile();<BR>';
     echo '$Profile->getProfile();';
+    echo '</pre>';
+
+    echo '$Domains = new Linode\Domains\Domains();';
+    echo '$Domains->getDomains());';
 
     $Domains = new Linode\Domains\Domains();
     var_dump($Domains->getDomains());
-
 } else {
     echo 'You need to provide a token in your config! Provide it or pass a code to set one.\n';
 }

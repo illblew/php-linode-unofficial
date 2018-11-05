@@ -34,18 +34,35 @@ class Curl
 	    CURLOPT_USERAGENT => self::USER_AGENT,
         );
         curl_setopt_array($ch, $values);
-	$response = curl_exec($ch);
-	curl_close($ch);
-	$response = json_decode($response);
+	    $response = curl_exec($ch);
+	    curl_close($ch);
+	    $response = json_decode($response);
         return $response;
     }
 
+    public function curlPut($endpoint, $header)
+    {
+        $ch = curl_init();
+        $values = array(
+            CURLOPT_URL => $endpoint,
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_CUSTOMREQUEST => "PUT",
+            CURLOPT_HTTPHEADER => $headers,
+            CURLOPT_URSERAGENT => self::USER_AGENT,
+
+        );
+        curl_setopt_array($ch,$values);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $response = json_decode($response);
+        return $response;
+    }
     public function curlGet($endpoint, $header)
     {
 	$ch = curl_init();
 	$values = array(
-            CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => $endpoint,
+        CURLOPT_RETURNTRANSFER => 1,
+        CURLOPT_URL => $endpoint,
 	    CURLOPT_USERAGENT => self::USER_AGENT,
 	);
 
@@ -53,9 +70,9 @@ class Curl
 	    $values[CURLOPT_HTTPHEADER] = $header;
         }
         curl_setopt_array($ch, $values);
-	$response = curl_exec($ch);
-	curl_close($ch);
-	$response = json_decode($response);
+	    $response = curl_exec($ch);
+	    curl_close($ch);
+	    $response = json_decode($response);
         return $response;
     }
 }
