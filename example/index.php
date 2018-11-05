@@ -37,9 +37,9 @@ if (!empty($config['token'])) {
 
     echo '$Domains = new Linode\Domains\Domains();';
     echo '$Domains->getDomains());';
-
-    $Domains = new Linode\Domains\Domains();
-    var_dump($Domains->getDomains());
+    
+    $Images = new Linode\Images\Images();
+    var_dump($Images->getImages());
 } else {
     echo 'You need to provide a token in your config! Provide it or pass a code to set one.\n';
 }
