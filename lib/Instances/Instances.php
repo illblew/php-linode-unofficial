@@ -12,9 +12,8 @@ class Instances extends Core
     public function getLinodes() {
         $curl = new Curl();
         $apiUrl = $this->getApiUrl();
-        $header = $this->getHeader(True);
         $fullUrl = $apiUrl . 'linode/instances';
-        $instances = $curl->curlGet($fullUrl,$header);
+        $instances = $curl->curlGet($fullUrl,$this->getHeader(True));
         return $instances;
     }
 
@@ -23,10 +22,8 @@ class Instances extends Core
         $curl = new Curl();
         $apiUrl = $this->getApiUrl();
         $fullUrl = $apiUrl . 'linode/instances';
-        $arr = array("region" => $datacenter, "type" => $type, "label" => $label, "group" => $group, "distro" => $distro, "root_pass" => $root_pass, "root_ssh_key" => $root_ssh_key, "stackscript" => $stackscript, "stackscript_udf_responses" => $stackscript_udf_responses, "backup" => $backup, "with_backups" => $with_backup);
-        $post = json_encode($arr);
-        $header = $this->getHeader();
-        $instance = $curl->curlPost($fullUrl,$header,$post);
+        $post = json_encode(array("region" => $datacenter, "type" => $type, "label" => $label, "group" => $group, "distro" => $distro, "root_pass" => $root_pass, "root_ssh_key" => $root_ssh_key, "stackscript" => $stackscript, "stackscript_udf_responses" => $stackscript_udf_responses, "backup" => $backup, "with_backups" => $with_backup));
+        $instance = $curl->curlPost($fullUrl,$this->getHeader(True),$post);
         return $instance;
 
     }
@@ -36,8 +33,7 @@ class Instances extends Core
         $curl = new Curl();
         $apiUrl = $this->getApiUrl();
         $fullUrl = $apiUrl . "linode/instances/".((int)$id);
-        $header = $this->getHeader(True);
-        $instance = $curl->curlDelete($fullUrl,$header);
+        $instance = $curl->curlDelete($fullUrl,$this->getHeader(True));
         return $instance;
     }
 
@@ -48,8 +44,7 @@ class Instances extends Core
         $apiUrl = $this->getApiUrl();
         $arr = array("config_id" => $config_id);
         $fullUrl = $apiUrl . "linode/instance/" . $id . "/boot";
-        $header = $this->getHeader(True);
-        $boot = $curl->curlPost($fullUrl,$arr,$header);
+        $boot = $curl->curlPost($fullUrl,$arr,$this->getHeader(True));
         return $boot;
     }
 

@@ -17,8 +17,7 @@ class Tags extends Core
     public function createTag($label, $linodes = null, $domains = null, $volumes = null, $nodebalancers = null) {
         $curl - new Curl();
         $fullUrl = $this->getApiUrl() . 'tags';
-        $arr = array('label' => $label,'linodes' => $linodes,'domains' => $domains,'volumes' => $volumes, 'nodebalancers' => $nodebalancers);
-        $post = json_encode($arr);
+        $post = json_encode(array('label' => $label,'linodes' => $linodes,'domains' => $domains,'volumes' => $volumes, 'nodebalancers' => $nodebalancers));
         $tags = $curl->curlPost($fullUrl,$this->getHeader(True),$post);
         return $tags;
     }
