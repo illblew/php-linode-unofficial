@@ -18,8 +18,7 @@ class Images extends Core
     public function createImage($disk_id = null, $label = null, $description = null) {
         $curl = new Curl();
         $fullUrl = $this->getApiUrl() . 'images/';
-        $arr = array('disk_id' => $disk_id, 'label' => $label, 'description' => $description);
-        $post = json_encode($arr);
+        $post = json_encode(array('disk_id' => $disk_id, 'label' => $label, 'description' => $description));
         $image = $curl->curlPost($fullUrl,$this->getHeader(True),$post);
         return $image;
     }
@@ -34,8 +33,7 @@ class Images extends Core
     public function updateImage($image_id, $label = null, $description = null) {
         $curl = new Curl();
         $fullUrl = $this->getApiUrl(). 'images/' . $image_id;
-        $arr = array('imageId' => $image_id, 'label' => $label, 'description' => $description);
-        $put = json_encode($put);
+        $put = json_encode(array('imageId' => $image_id, 'label' => $label, 'description' => $description));
         $image = $curl->curlPut($fullUrl,$this->getHeader(True),$put);
         return $image;
     }

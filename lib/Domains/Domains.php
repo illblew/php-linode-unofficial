@@ -27,8 +27,7 @@ class Domains extends Core
 
         $curl = new Curl();
         $fullUrl = $this->getApiURL . 'domains/';
-        $arr = array ('domain' => $domain, 'type' => $type, 'status' => $status, 'description' => $description, 'soa_email' => $soa_email, 'retry_sec' => $retry_sec, 'master_ips', $master_ips, 'afxr_ips' => $afxr_ips, 'expire_sec' => $expire_sec, 'refresh_sec' => $refresh_sec, 'ttl_sec' => $ttl_sec);
-        $post = json_encode($arr);
+        $post = json_encode(array ('domain' => $domain, 'type' => $type, 'status' => $status, 'description' => $description, 'soa_email' => $soa_email, 'retry_sec' => $retry_sec, 'master_ips', $master_ips, 'afxr_ips' => $afxr_ips, 'expire_sec' => $expire_sec, 'refresh_sec' => $refresh_sec, 'ttl_sec' => $ttl_sec));
         $domain = $curl->curlPost($fullUrl,$this->header(True),$post);
         return $domain;
     }
@@ -37,9 +36,7 @@ class Domains extends Core
 
         $curl = new Curl();
         $fillUrl = $this->getApiURL . 'domains/';
-        $arr = array ('domain' => $domain, 'type' => $type, 'status' => $status, 'description' => $description, 'soa_email' =>          $soa_email, 'retry_sec' => $retry_sec, 'master_ips', $master_ips, 'afxr_ips' => $afxr_ips, 'expire_sec' => $expire_sec, 'refresh_sec'   => $refresh_sec, 'ttl_sec' => $ttl_sec);
-
-        $put = json_encode($arr);
+        $put = json_encode(array ('domain' => $domain, 'type' => $type, 'status' => $status, 'description' => $description, 'soa_email' =>          $soa_email, 'retry_sec' => $retry_sec, 'master_ips', $master_ips, 'afxr_ips' => $afxr_ips, 'expire_sec' => $expire_sec, 'refresh_sec'   => $refresh_sec, 'ttl_sec' => $ttl_sec));
         $domain = $curl->curlPut($fullUrl,$this->header(True), $put);
         return $domain;
     }
@@ -47,8 +44,7 @@ class Domains extends Core
     public function deleteDomain($domain_id) {
         $curl = new Curl();
         $fullUrl = $this->getApiURL . 'domains/';
-        $arr = array ('domainId' => $domain_id);
-        $delete = json_encode($arr);
+        $delete = json_encode(array ('domainId' => $domain_id));
         $domain = $curl->curlDelete($fullUrl,$this->header(True), $delete);
         return $domain;
     }
