@@ -11,10 +11,8 @@ class Profile extends Core
 
 	function getProfile($id = null) {
         $curl = new Curl();
-        $apiUrl = $this->getApiUrl();
         $header = $this->getHeader(True);
-        $path = '/profile';
-        $fullUrl = $apiUrl . $path;
+        $fullUrl = $this->getApiUrl . '/account//profile';
         $profile = $curl->curlGet($fullUrl,$header);
         return $profile;
 	}
