@@ -37,6 +37,13 @@ class Instances extends Core
         return $instance;
     }
 
+    public function getTypes() {
+        $curl = new Curl();
+        $fullUrl = $this->getApiUrl() . "linode/types";
+        $types = $curl->curlGet($fullUrl,$this->getHeader(True));
+        return $types;
+    }
+
     //Boot a Linode
     
     public function bootLinode($id,$config_id=null) {
