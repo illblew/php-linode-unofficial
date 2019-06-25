@@ -11,11 +11,17 @@ class Profile extends Core
 
 	function getProfile($id = null) {
         $curl = new Curl();
-        $header = $this->getHeader(True);
-        $fullUrl = $this->getApiUrl . '/account//profile';
-        $profile = $curl->curlGet($fullUrl,$header);
+        $fullUrl = $this->getApiUrl . '/account/profile';
+        $profile = $curl->curlGet($fullUrl,$this->getHeader(True));
         return $profile;
-	}
+    }
+
+    function updateProfile($email,$timezone,$email_notifications,$lish_auth_method,$authorized_keys,$two_factor_auth,$restricted) {
+        $curl = new Curl();
+        $fullUrl = $this->getApiUrl . '/account/profile';
+        $put = json_encode('email' = $email, 'timezone' => $timezone, 'email_notifications' => $email_notifications, 'lish_auth_method' => $lish_auth_method, 'authorized_keys' =? $authorized_keys, 'two_factor_aith' => $two_factor_auth, 'restricted' => $restricted)
+        $update_profile = $curl->curlPut($fullUrl,$this->getHeader(True),$put);    
+    }
 }
 
 
